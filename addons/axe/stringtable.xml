@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Synixe_equipment">
+    <Package name="AXE">
+        <Key ID="STR_Synixe_equipment_axe_CutTree">
+            <English>Chop</English>
+            <German>Fällen</German>
+        </Key>
+        <Key ID="STR_Synixe_equipment_axe_CuttingTree">
+            <English>Chopping...</English>
+            <German>Fällen...</German>
+        </Key>
+        <Key ID="STR_Synixe_equipment_axe_Description">
+            <English>An axe to chop down trees and bushes.</English>
+            <German>Eine Axt um Bäume und Büsche zu fällen.</German>
+        </Key>
+        <Key ID="STR_Synixe_equipment_axe_Name">
+            <English>Axe</English>
+            <German>Axt</German>
+        </Key>
+    </Package>
+</Project>

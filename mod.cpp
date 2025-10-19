@@ -1,0 +1,12 @@
+name = "Synixe Equipment";
+picture = "logo_ca.paa";
+actionName = "GitHub";
+action = "https://github.com/SynixeContractors/Equipment";
+description = "Synixe Equipment provides equipment for Synixe Contractors.";
+logo = "logo_ca.paa";
+logoOver = "logo_ca.paa";
+tooltip = "Synixe Equipment";
+tooltipOwned = "Synixe Equipment Owned";
+overview = "Synixe Equipment provides equipment for Synixe Contractors.";
+author = "Synixe Contractors";
+overviewPicture = "logo_ca.paa";

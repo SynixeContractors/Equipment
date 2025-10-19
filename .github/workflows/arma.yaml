@@ -18,11 +18,11 @@ jobs:
         run: hemtt build
 
       - name: Rename build folder
-        run: mv .hemttout/build .hemttout/@synixe_standardization
+        run: mv .hemttout/build .hemttout/@synixe_equipment
 
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name: synixe_standardization.zip
+          name: synixe_equipment.zip
           path: .hemttout/@*
           include-hidden-files: true 

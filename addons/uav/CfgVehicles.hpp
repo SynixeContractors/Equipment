@@ -1,3 +1,24 @@
+#define PACK  class GVAR(pack) { \
+                    displayName = "Pack"; \
+                    distance = 4; \
+                    condition = QUOTE([ARR_2(_player,_target)] call FUNC(generic_packCondition)); \
+                    statement = QUOTE([ARR_2(_player,_target)] call FUNC(generic_pack)); \
+                }
+#define BATTERY class GVAR(removeBattery) { \
+                    displayName = "Remove Battery"; \
+                    distance = 4; \
+                    modifierFunction = QUOTE(call FUNC(generic_removeBatteryModify)); \
+                    condition = QUOTE([ARR_2(_player,_target)] call FUNC(generic_removeBatteryCondition)); \
+                    statement = QUOTE([ARR_2(_player,_target)] call FUNC(generic_removeBattery)); \
+                }; \
+                class GVAR(insertBattery) { \
+                    displayName = "Insert Battery"; \
+                    distance = 4; \
+                    condition = QUOTE([ARR_2(_player,_target)] call FUNC(generic_insertBatteryCondition)); \
+                    statement = ""; \
+                    insertChildren = QUOTE([ARR_2(_player,_target)] call FUNC(generic_insertBatteryInsertChildren)); \
+                }
+
 class CfgVehicles {
     class Weapon_Bag_Base;
     class GVAR(uav_bag_base): Weapon_Bag_Base {
@@ -55,27 +76,6 @@ class CfgVehicles {
         };
     };
 
-#define PACK  class GVAR(pack) { \
-                    displayName = "Pack"; \
-                    distance = 4; \
-                    condition = QUOTE([ARR_2(_player,_target)] call FUNC(generic_packCondition)); \
-                    statement = QUOTE([ARR_2(_player,_target)] call FUNC(generic_pack)); \
-                }
-#define BATTERY class GVAR(removeBattery) { \
-                    displayName = "Remove Battery"; \
-                    distance = 4; \
-                    modifierFunction = QUOTE(call FUNC(generic_removeBatteryModify)); \
-                    condition = QUOTE([ARR_2(_player,_target)] call FUNC(generic_removeBatteryCondition)); \
-                    statement = QUOTE([ARR_2(_player,_target)] call FUNC(generic_removeBattery)); \
-                }; \
-                class GVAR(insertBattery) { \
-                    displayName = "Insert Battery"; \
-                    distance = 4; \
-                    condition = QUOTE([ARR_2(_player,_target)] call FUNC(generic_insertBatteryCondition)); \
-                    statement = ""; \
-                    insertChildren = QUOTE([ARR_2(_player,_target)] call FUNC(generic_insertBatteryInsertChildren)); \
-                }
-
     // Darter
     class UAV_01_base_F: Helicopter_Base_F {
         class ACE_Actions: ACE_Actions {
@@ -110,12 +110,6 @@ class CfgVehicles {
                     statement = QUOTE([ARR_2(_player,_target)] call FUNC(generic_pack));
                 };
                 BATTERY;
-                // class GVAR(reload) {
-                //     displayName = "Reload";
-                //     distance = 4;
-                //     condition = QUOTE([ARR_2(_player,_target)] call FUNC(bustard_reloadCondition));
-                //     statement = QUOTE([ARR_2(_player,_target)] call FUNC(bustard_reload));
-                // };
             };
             class GVAR(arm) {
                 displayName = "Arm";

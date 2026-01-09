@@ -10,8 +10,11 @@
         case "Land_Bodybag_01_white_F": {"white"};
         case "ACE_bodyBagObject_black";
         case "Land_Bodybag_01_black_F": {"black"};
+        case QITEM(bodybag_ace_yellow);
         case QITEM(bodybag_yellow): {"yellow"};
+        case QITEM(bodybag_ace_red);
         case QITEM(bodybag_red): {"red"};
+        case QITEM(bodybag_ace_green);
         case QITEM(bodybag_green): {"green"};
         default {"black"};
     };

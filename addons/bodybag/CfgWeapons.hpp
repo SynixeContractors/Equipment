@@ -7,7 +7,7 @@ class CfgWeapons {
         hiddenSelectionsTextures[] = {
             QPATHTOF(data\bodybag_yellow_ca.paa),
         };
-        ace_medical_treatment_bodyBagObject = QITEM(bodybag_yellow);
+        ace_medical_treatment_bodyBagObject = QITEM(bodybag_ace_yellow);
     };
     class ITEM(bodyBag_red): ACE_bodyBag_blue {
         displayName = "Body Bag (Red)";
@@ -15,7 +15,7 @@ class CfgWeapons {
         hiddenSelectionsTextures[] = {
             QPATHTOF(data\bodybag_red_ca.paa),
         };
-        ace_medical_treatment_bodyBagObject = QITEM(bodybag_red);
+        ace_medical_treatment_bodyBagObject = QITEM(bodybag_ace_red);
     };
     class ITEM(bodyBag_green): ACE_bodyBag_blue {
         displayName = "Body Bag (Green)";
@@ -23,6 +23,6 @@ class CfgWeapons {
         hiddenSelectionsTextures[] = {
             QPATHTOF(data\bodybag_green_ca.paa),
         };
-        ace_medical_treatment_bodyBagObject = QITEM(bodybag_green);
+        ace_medical_treatment_bodyBagObject = QITEM(bodybag_ace_green);
     };
 };

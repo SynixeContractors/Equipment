@@ -4,8 +4,11 @@
     params ["_unit", "_bodybag"];
     private _name = name _unit;
     private _color = switch (typeOf _bodybag) do {
+        case "ACE_bodyBagObject_blue";
         case "Land_Bodybag_01_blue_F": {"blue"};
+        case "ACE_bodyBagObject_white";
         case "Land_Bodybag_01_white_F": {"white"};
+        case "ACE_bodyBagObject_black";
         case "Land_Bodybag_01_black_F": {"black"};
         case QITEM(bodybag_yellow): {"yellow"};
         case QITEM(bodybag_red): {"red"};

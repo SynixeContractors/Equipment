@@ -1,11 +1,11 @@
 class CfgWeapons {
     class Default;
     class Put: Default {
-        muzzles[] += {QGVAR(BreachingCharge_Muzzle)};
+        muzzles[] += {QITEM(BreachingCharge_Muzzle)};
 
         class PutMuzzle: Default {};
-        class GVAR(BreachingCharge_Muzzle): PutMuzzle {
-            magazines[] = {QGVAR(BreachingCharge_Mag)};
+        class ITEM(BreachingCharge_Muzzle): PutMuzzle {
+            magazines[] = {QITEM(BreachingCharge_Mag)};
             displayName = "Breaching Charge";
         };
     };

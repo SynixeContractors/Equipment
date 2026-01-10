@@ -25,7 +25,7 @@ class CfgVehicles {
     class ITEM(bodybag_ace_yellow): ACE_bodyBagObject {
         displayName = "Body Bag (Yellow)";
         hiddenSelectionsTextures[] = {
-            QPATHTOF(data\bodybag_yellow_folded_ca.paa),
+            QPATHTOF(data\bodybag_yellow_ca.paa),
         };
     };
 
@@ -50,7 +50,7 @@ class CfgVehicles {
     class ITEM(bodybag_ace_red): ACE_bodyBagObject {
         displayName = "Body Bag (Red)";
         hiddenSelectionsTextures[] = {
-            QPATHTOF(data\bodybag_red_folded_ca.paa),
+            QPATHTOF(data\bodybag_red_ca.paa),
         };
     };
 
@@ -75,7 +75,7 @@ class CfgVehicles {
     class ITEM(bodybag_ace_green): ACE_bodyBagObject {
         displayName = "Body Bag (Green)";
         hiddenSelectionsTextures[] = {
-            QPATHTOF(data\bodybag_green_folded_ca.paa),
+            QPATHTOF(data\bodybag_green_ca.paa),
         };
     };
 };

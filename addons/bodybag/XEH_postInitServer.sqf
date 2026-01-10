@@ -2,7 +2,7 @@
 
 ["ace_placedInBodyBag", {
     params ["_unit", "_bodybag"];
-    private _name = name _unit;
+    private _name = [_unit, false, true] call ace_common_fnc_getName;
     private _color = switch (typeOf _bodybag) do {
         case "ACE_bodyBagObject_blue";
         case "Land_Bodybag_01_blue_F": {"blue"};

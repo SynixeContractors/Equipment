@@ -16,7 +16,11 @@ private _children = [];
         _children pushBack [
             [
                 format ["drone_%1", _forEachIndex],
-                format ["%1 (%2%3)", getText (_droneCfg >> "displayName"), _count, "%"],
+                if (getNumber (_droneCfg >> QGVAR(hidePercentage)) == 1) then {
+                    getText (_droneCfg >> "displayName")
+                } else {
+                    format ["%1 (%2%3)", getText (_droneCfg >> "displayName"), _count, "%"]
+                },
                 getText (_droneCfg >> "picture"),
                 { [_this select 0, _this select 2] call FUNC(generic_assemble) },
                 { true },

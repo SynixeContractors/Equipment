@@ -2,6 +2,8 @@
 
 params ["_unit", "_uav"];
 
+if (getNumber (configOf _uav >> QGVAR(singleUse)) == 1) exitWith {};
+
 alive _uav && {fuel _uav != 0} && {
     _unit canAdd QGVAR(battery)
 }

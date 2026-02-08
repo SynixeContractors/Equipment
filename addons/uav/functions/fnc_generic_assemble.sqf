@@ -6,9 +6,19 @@ _params params ["_container", "_count", "_case"];
 private _drone = getText (configFile >> "CfgMagazines" >> _case >> QGVAR(drone));
 if (_drone isEqualTo "") exitWith {};
 
-[_unit, "MedicOther"] call ace_common_fnc_doGesture;
+private _droneCfg = configFile >> "CfgVehicles" >> _drone;
+private _assembleTimeConfig = _droneCfg >> QGVAR(assembleTime);
+private _time = if (isNumber _assembleTimeConfig) then {
+    getNumber _assembleTimeConfig
+} else {
+    5
+};
+
+if (_time > 3) then {
+    [_unit, "MedicOther"] call ace_common_fnc_doGesture;
+};
 [
-    5,
+    _time,
     [_unit, _container, _drone, _case, _count],
     {
         (_this select 0) params ["_unit","_container","_drone","_case","_count"];
@@ -25,7 +35,8 @@ if (_drone isEqualTo "") exitWith {};
                 (_this select 0) call compile (_this select 1);
             }, [[_unit, _uav, _drone], _assembled]] call CBA_fnc_execNextFrame;
         };
-        [_unit, 'PutDown'] call ace_common_fnc_doGesture;
+        [_unit, "PutDown"] call ace_common_fnc_doGesture;
+        _unit connectTerminalToUAV _uav;
     },
     {},
     format ["Assembling %1", getText (configFile >> "CfgVehicles" >> _drone >> "displayName")]

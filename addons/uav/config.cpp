@@ -3,7 +3,12 @@
 class CfgPatches {
     class ADDON {
         name = QUOTE(COMPONENT);
-        units[] = {};
+        units[] = {
+            QGVAR(ar2_bag_od),
+            QGVAR(ar2_bag_green),
+            QGVAR(ar2_bag_wdl),
+            QGVAR(ar2_bag_tan),
+        };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {

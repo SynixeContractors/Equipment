@@ -5,6 +5,7 @@ mainprefix = "s"
 
 [hemtt.launch.default]
 workshop = [
+    "3499977893", # ADT
     "450814997", # CBA
     "463939057", # ACE3
     "1779063631", # Zeus Enhanced

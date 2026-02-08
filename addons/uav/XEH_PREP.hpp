@@ -10,6 +10,11 @@ PREP(generic_removeBattery);
 PREP(generic_removeBatteryCondition);
 PREP(generic_removeBatteryModify);
 
+PREP(gl_deploy);
+
+PREP(mini_grab);
+PREP(mini_grabCondition);
+
 PREP(bustard_init);
 PREP(bustard_assembled);
 PREP(bustard_arm);

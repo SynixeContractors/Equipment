@@ -10,3 +10,11 @@ workshop = [
     "463939057", # ACE3
     "1779063631", # Zeus Enhanced
 ]
+dlc = [
+    "rf",
+    "ws",
+]
+
+[hemtt.launch.outfitting]
+extends = "default"
+mission = "outfitting.Stratis"

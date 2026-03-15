@@ -8,6 +8,7 @@ private _dir = getDir _unit;
     params ["_projectile", "_unit", "_zeroing", "_dir"];
 
     private _pPos = getPosASL _projectile;
+    private _fuel = parseNumber (((currentMagazineDetail _unit) splitString "([ ]/:)") select 2);
 
     waitUntil { (speed _projectile != 0) };
 
@@ -43,7 +44,6 @@ private _dir = getDir _unit;
     _uav setVelocity _pVel;
     _unit connectTerminalToUAV _uav;
 
-    private _fuel = parseNumber (((currentMagazineDetail _unit) splitString "([ ]/:)") select 2);
     _uav setFuel (_fuel / 100);
     _unit removePrimaryWeaponItem currentMagazine _unit;
 

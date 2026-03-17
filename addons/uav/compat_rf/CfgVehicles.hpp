@@ -8,6 +8,11 @@ class CfgVehicles {
     class UAV_RC40_Base_RF: UAV_01_base_F {
         GVAR(singleUse) = 1;
         GVAR(assembleTime) = 1;
+        GVAR(mode) = "LOS";
+        GVAR(power)[] = { 100, 200, 300 };
+        GVAR(defaultPower) = 100;
+        GVAR(freq)[] = { 2400, 5800 };
+        GVAR(defaultFreq) = 2400;
         class ACE_Actions: ACE_Actions {
             class ACE_MainActions: ACE_MainActions {
                 class GVAR(grab) {

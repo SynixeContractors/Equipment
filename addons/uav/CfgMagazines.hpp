@@ -57,7 +57,6 @@ class CfgMagazines {
 
     // Bustard
     class GVAR(base_bustard): GVAR(base) {
-        aid_uav_maxRange = 13000;
         count = 100;
         picture = "\lxWS\air_f_lxWS\Data\UI\UAV_02_CA.paa";
         DLC = "lxWS";
@@ -87,7 +86,6 @@ class CfgMagazines {
 
     // IED Drone
     class GVAR(base_ied): GVAR(base) {
-        aid_uav_maxRange = 13000;
         count = 100;
         picture = "\lxWS\air_1_f_lxws\Data\UI\UAV_02_IED_CA.paa";
         DLC = "lxWS";

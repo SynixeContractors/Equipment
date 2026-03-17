@@ -33,3 +33,10 @@ PREP(ied_armInsertChildren);
 PREP(ied_disarm);
 PREP(ied_disarmCondition);
 PREP(ied_packCondition);
+
+PREP(signal_adjust);
+PREP(signal_calc);
+PREP(signal_collision);
+PREP(signal_maxRes);
+PREP(signal_pfh);
+PREP(signal_satError);

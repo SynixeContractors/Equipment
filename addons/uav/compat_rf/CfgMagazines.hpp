@@ -2,13 +2,27 @@ class CfgMagazines {
     class 1Rnd_RC40_shell_RF;
     class GVAR(RC40_scout): 1Rnd_RC40_shell_RF {
         count = 100;
+        type = 256;
+        initSpeed = 25;
         GVAR(drone) = "B_UAV_RC40_SENSOR_RF";
     };
+    class GVAR(RC40_scout_gl): 1Rnd_RC40_shell_RF {
+        count = 100;
+        GVAR(drone) = "B_UAV_RC40_SENSOR_GL_RF";
+    };
+
     class 1Rnd_RC40_HE_shell_RF;
     class GVAR(RC40_HE): 1Rnd_RC40_HE_shell_RF {
         count = 100;
+        type = 256;
+        initSpeed = 25;
         GVAR(drone) = "B_UAV_RC40_HE_RF";
     };
+    class GVAR(RC40_HE_gl): 1Rnd_RC40_HE_shell_RF {
+        count = 100;
+        GVAR(drone) = "B_UAV_RC40_HE_GL_RF";
+    };
+    
     class 1Rnd_RC40_SmokeBlue_shell_RF;
     class GVAR(RC40_SmokeBlue): 1Rnd_RC40_SmokeBlue_shell_RF {
         count = 100;

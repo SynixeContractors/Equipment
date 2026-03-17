@@ -9,6 +9,7 @@ class CfgPatches {
         requiredAddons[] = {
             "synixe_equipment_uav",
             "RF_Air_RC40",
+            "ace_compat_rf_realisticnames",
         };
         skipWhenMissingDependencies = 1;
         author = "Synixe Contractors";
@@ -25,6 +26,8 @@ class Extended_InitPost_EventHandlers {
 };
 
 #include "CfgAmmo.hpp"
+#include "CfgEventHandlers.hpp"
 #include "CfgMagazines.hpp"
 #include "CfgMagazineWells.hpp"
 #include "CfgVehicles.hpp"
+#include "CfgWeapons.hpp"

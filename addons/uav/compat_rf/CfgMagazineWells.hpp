@@ -2,7 +2,9 @@ class CfgMagazineWells {
     class CBA_40mm_M203 {
         ADDON[] = {
             QGVAR(RC40_scout),
+            QGVAR(RC40_scout_gl),
             QGVAR(RC40_HE),
+            QGVAR(RC40_HE_gl),
             QGVAR(RC40_SmokeBlue),
             QGVAR(RC40_SmokeGreen),
             QGVAR(RC40_SmokeOrange),
@@ -13,7 +15,9 @@ class CfgMagazineWells {
     class CBA_40mm_EGLM {
         ADDON[] = {
             QGVAR(RC40_scout),
+            QGVAR(RC40_scout_gl),
             QGVAR(RC40_HE),
+            QGVAR(RC40_HE_gl),
             QGVAR(RC40_SmokeBlue),
             QGVAR(RC40_SmokeGreen),
             QGVAR(RC40_SmokeOrange),

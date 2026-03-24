@@ -9,10 +9,11 @@ workshop = [
     "450814997", # CBA
     "463939057", # ACE3
     "1779063631", # Zeus Enhanced
-]
-dlc = [
-    "rf",
-    "ws",
+    "synixe:@aegis_atlas",
+    "synixe:@aegis_opposing_forces",
+    "synixe:@aegis",
+    "synixe:@ws",
+    "synixe:@rf",
 ]
 
 [hemtt.launch.outfitting]

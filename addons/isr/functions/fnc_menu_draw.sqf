@@ -10,8 +10,12 @@ for "_i" from 0 to 9 do {
         } else {
             format ["%1 %2", _i, _lines#_i]
         };
-        uiNamespace getVariable format [QGVAR(menuLine%1), _i] ctrlSetText _text;
+        {
+            _x ctrlSetText _text;
+        } forEach ([format [QGVAR(menuLine%1), _i]] call FUNC(menu_getControls));
     } else {
-        uiNamespace getVariable format [QGVAR(menuLine%1), _i] ctrlSetText "";
+        {
+            _x ctrlSetText "";
+        } forEach ([format [QGVAR(menuLine%1), _i]] call FUNC(menu_getControls));
     };
 };

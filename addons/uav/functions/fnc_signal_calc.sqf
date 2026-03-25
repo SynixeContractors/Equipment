@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 
-params ["_f", "_mW", "_rxPos", "_txPos", ["_class", ""]];
+params ["_f", "_mW", "_rxPos", "_txPos"];
 
 private _distance = _txPos distance _rxPos;
 

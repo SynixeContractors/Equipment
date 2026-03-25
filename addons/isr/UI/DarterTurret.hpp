@@ -1,12 +1,12 @@
 class RscOptics_UAV_gunner: RscUnitInfo {
     class CA_IGUI_elements_group: RscControlsGroup {
-        onLoad = "uiNamespace setVariable [""synixe_equipment_isr_vanilla_group"", _this#0];";
+        onLoad = "uiNamespace setVariable [""vanilla_group"",_this#0];";
         class controls {
             class CA_Alt: RscText {
                 fade = 1;
             };
             class GVAR(CA_Alt): CA_Alt {
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_altControl"", _this#0];";
+                onLoad = QUOTE([ARR_2(""alt"",_this#0)] call FUNC(menu_addControl););
                 fade = 0;
                 idc = IDC_ALT;
                 font = ISR_FONT;
@@ -16,7 +16,7 @@ class RscOptics_UAV_gunner: RscUnitInfo {
                 fade = 1;
             };
             class GVAR(CA_Speed): CA_Speed {
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_speedControl"", _this#0];";
+                onLoad = QUOTE([ARR_2(""speed"",_this#0)] call FUNC(menu_addControl););
                 fade = 0;
                 idc = IDC_SPEED;
                 font = ISR_FONT;
@@ -33,9 +33,9 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(CA_Signal): GVAR(CA_Alt) {
                 idc = IDC_SIGNAL;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_signalControl"", _this#0];";
+                onLoad = QUOTE([ARR_2(""signal"",_this#0)] call FUNC(menu_addControl););
                 y = "14.8 * (0.025 * safeZoneH)";
-                text = "0";
+                text = "ERR";
             };
             class GVAR(TextConnMode): GVAR(TextSignal) {
                 idc = IDC_CONN_MODE_TEXT;
@@ -44,9 +44,9 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(CA_ConnMode): GVAR(CA_Signal) {
                 idc = IDC_CONN_MODE;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_connModeControl"", _this#0];";
+                onLoad = QUOTE([ARR_2(""connMode"",_this#0)] call FUNC(menu_addControl););
                 y = "15.6 * (0.025 * safeZoneH)";
-                text = "UAV";
+                text = "ERR";
             };
             class GVAR(TextConnFreq): GVAR(TextSignal) {
                 idc = IDC_CONN_FREQ_TEXT;
@@ -55,9 +55,9 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(CA_ConnFreq): GVAR(CA_Signal) {
                 idc = IDC_CONN_FREQ;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_connFreqControl"", _this#0];";
+                onLoad = QUOTE([ARR_2(""connFreq"",_this#0)] call FUNC(menu_addControl););
                 y = "16.4 * (0.025 * safeZoneH)";
-                text = "1300";
+                text = "ERR";
             };
             class GVAR(TextConnPower): GVAR(TextSignal) {
                 idc = IDC_CONN_POWER_TEXT;
@@ -66,14 +66,14 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(CA_ConnPower): GVAR(CA_Signal) {
                 idc = IDC_CONN_POWER;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_connPowerControl"", _this#0];";
+                onLoad = QUOTE([ARR_2(""connPower"",_this#0)] call FUNC(menu_addControl););
                 y = "17.2 * (0.025 * safeZoneH)";
-                text = "100";
+                text = "ERR";
             };
 
             class GVAR(MenuLine0): GVAR(CA_Alt) {
                 idc = IDC_MENU_LINE_0;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_menuLine0"", _this#0];";
+                onLoad = QUOTE([ARR_2(""menuLine0"",_this#0)] call FUNC(menu_addControl););
                 x = "40 * (0.01875 * SafezoneH)";
                 y = "12.4 * (0.025 * safeZoneH)";
                 w = "10 * (0.01875 * SafezoneH)";
@@ -81,7 +81,7 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(MenuLine1): GVAR(CA_Alt) {
                 idc = IDC_MENU_LINE_1;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_menuLine1"", _this#0];";
+                onLoad = QUOTE([ARR_2(""menuLine1"",_this#0)] call FUNC(menu_addControl););
                 x = "40 * (0.01875 * SafezoneH)";
                 y = "13.2 * (0.025 * safeZoneH)";
                 w = "10 * (0.01875 * SafezoneH)";
@@ -89,7 +89,7 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(MenuLine2): GVAR(CA_Alt) {
                 idc = IDC_MENU_LINE_2;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_menuLine2"", _this#0];";
+                onLoad = QUOTE([ARR_2(""menuLine2"",_this#0)] call FUNC(menu_addControl););
                 x = "40 * (0.01875 * SafezoneH)";
                 y = "14 * (0.025 * safeZoneH)";
                 w = "10 * (0.01875 * SafezoneH)";
@@ -97,7 +97,7 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(MenuLine3): GVAR(CA_Alt) {
                 idc = IDC_MENU_LINE_3;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_menuLine3"", _this#0];";
+                onLoad = QUOTE([ARR_2(""menuLine3"",_this#0)] call FUNC(menu_addControl););
                 x = "40 * (0.01875 * SafezoneH)";
                 y = "14.8 * (0.025 * safeZoneH)";
                 w = "10 * (0.01875 * SafezoneH)";
@@ -105,7 +105,7 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(MenuLine4): GVAR(CA_Alt) {
                 idc = IDC_MENU_LINE_4;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_menuLine4"", _this#0];";
+                onLoad = QUOTE([ARR_2(""menuLine4"",_this#0)] call FUNC(menu_addControl););
                 x = "40 * (0.01875 * SafezoneH)";
                 y = "15.6 * (0.025 * safeZoneH)";
                 w = "10 * (0.01875 * SafezoneH)";
@@ -113,7 +113,7 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(MenuLine5): GVAR(CA_Alt) {
                 idc = IDC_MENU_LINE_5;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_menuLine5"", _this#0];";
+                onLoad = QUOTE([ARR_2(""menuLine5"",_this#0)] call FUNC(menu_addControl););
                 x = "40 * (0.01875 * SafezoneH)";
                 y = "16.4 * (0.025 * safeZoneH)";
                 w = "10 * (0.01875 * SafezoneH)";
@@ -121,7 +121,7 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(MenuLine6): GVAR(CA_Alt) {
                 idc = IDC_MENU_LINE_6;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_menuLine6"", _this#0];";
+                onLoad = QUOTE([ARR_2(""menuLine6"",_this#0)] call FUNC(menu_addControl););
                 x = "40 * (0.01875 * SafezoneH)";
                 y = "17.2 * (0.025 * safeZoneH)";
                 w = "10 * (0.01875 * SafezoneH)";
@@ -129,7 +129,7 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(MenuLine7): GVAR(CA_Alt) {
                 idc = IDC_MENU_LINE_7;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_menuLine7"", _this#0];";
+                onLoad = QUOTE([ARR_2(""menuLine7"",_this#0)] call FUNC(menu_addControl););
                 x = "40 * (0.01875 * SafezoneH)";
                 y = "18 * (0.025 * safeZoneH)";
                 w = "10 * (0.01875 * SafezoneH)";
@@ -137,7 +137,7 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(MenuLine8): GVAR(CA_Alt) {
                 idc = IDC_MENU_LINE_8;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_menuLine8"", _this#0];";
+                onLoad = QUOTE([ARR_2(""menuLine8"",_this#0)] call FUNC(menu_addControl););
                 x = "40 * (0.01875 * SafezoneH)";
                 y = "18.8 * (0.025 * safeZoneH)";
                 w = "10 * (0.01875 * SafezoneH)";
@@ -145,7 +145,7 @@ class RscOptics_UAV_gunner: RscUnitInfo {
             };
             class GVAR(MenuLine9): GVAR(CA_Alt) {
                 idc = IDC_MENU_LINE_9;
-                onLoad = "uiNamespace setVariable [""synixe_equipment_isr_menuLine9"", _this#0];";
+                onLoad = QUOTE([ARR_2(""menuLine9"",_this#0)] call FUNC(menu_addControl););
                 x = "40 * (0.01875 * SafezoneH)";
                 y = "19.6 * (0.025 * safeZoneH)";
                 w = "10 * (0.01875 * SafezoneH)";

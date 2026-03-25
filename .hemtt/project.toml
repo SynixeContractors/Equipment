@@ -12,10 +12,16 @@ workshop = [
     "synixe:@aegis_atlas",
     "synixe:@aegis_opposing_forces",
     "synixe:@aegis",
-    "synixe:@ws",
-    "synixe:@rf",
+]
+dlc = [
+    "ws",
+    "rf",
 ]
 
 [hemtt.launch.outfitting]
 extends = "default"
 mission = "outfitting.Stratis"
+
+[hemtt.launch.spectrum]
+extends = "default"
+mission = "spectrum.Stratis"

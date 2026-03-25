@@ -12,23 +12,22 @@ GVAR(isUAV) = _isUAV;
 
 if (_vehicle isEqualTo ace_player) exitWith {};
 
-// Speed
-(uiNamespace getVariable QGVAR(speedControl)) ctrlSetText (([_vehicle, GVAR(speedCurrentMode)] call FUNC(getSpeed)) toFixed 0);
-
-// Altitude
-[_vehicle, "setAltitudeMode"] call GVAR(vehicleFunction);
-(uiNamespace getVariable QGVAR(altControl)) ctrlSetText (([_vehicle, GVAR(altCurrentMode)] call FUNC(getAltitude)) toFixed 0);
-
 // Signal
 if (_isUAV) then {
-    (uiNamespace getVariable QGVAR(signalControl)) ctrlSetText format ["%1%%", (100 * EGVAR(uav,currentSignal)) toFixed 0];
-    (uiNamespace getVariable QGVAR(connModeControl)) ctrlSetText EGVAR(uav,mode);
+    ["speed", ([_vehicle, GVAR(speedCurrentMode)] call FUNC(getSpeed)) toFixed 0] call FUNC(menu_setControlText);
+
+    [_vehicle, "setAltitudeMode"] call GVAR(vehicleFunction);
+    ["alt", ([_vehicle, GVAR(altCurrentMode)] call FUNC(getAltitude)) toFixed 0] call FUNC(menu_setControlText);
+
+
+    ["signal", format ["%1%%", (100 * EGVAR(uav,currentSignal)) toFixed 0]] call FUNC(menu_setControlText);
+    ["connMode", EGVAR(uav,mode)] call FUNC(menu_setControlText);
     if (EGVAR(uav,mode) == "LOS") then {
-        (uiNamespace getVariable QGVAR(connFreqControl)) ctrlSetText ([_vehicle getVariable [QEGVAR(uav,freq), 1300]] call FUNC(displayFrequency));
-        (uiNamespace getVariable QGVAR(connPowerControl)) ctrlSetText ([_vehicle getVariable [QEGVAR(uav,power), 800]] call FUNC(displayPower));
+        ["connFreq", ([_vehicle getVariable [QEGVAR(uav,freq), 1300]] call FUNC(displayFrequency))] call FUNC(menu_setControlText);
+        ["connPower", ([_vehicle getVariable [QEGVAR(uav,power), 800]] call FUNC(displayPower))] call FUNC(menu_setControlText);
     } else {
-        (uiNamespace getVariable QGVAR(connFreqControl)) ctrlSetText "";
-        (uiNamespace getVariable QGVAR(connPowerControl)) ctrlSetText "";
+        ["connFreq", ""] call FUNC(menu_setControlText);
+        ["connPower", ""] call FUNC(menu_setControlText);
     };
 };
 

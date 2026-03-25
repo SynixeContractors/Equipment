@@ -27,7 +27,7 @@ private _power = _uav getVariable [QGVAR(power), 800];
     };
 
     private _playerPos = getPosASL ace_player;
-    // Add a meter of height to the player, since the terrain is usually held at chest height
+    // Add a meter of height to the player, since the terminal is usually held at chest height
     _playerPos set [2, (_playerPos select 2) + 1.4];
 
     private _signal = ([_freq, _power, getPosASL _uav, _playerPos] call FUNC(signal_calc)) select 0;

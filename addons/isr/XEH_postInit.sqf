@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+uiNamespace setVariable [QGVAR(controls), createHashMap];
+
 GVAR(cameraChangedEH) = ["cameraView", {
     params ["", "_new", "_old"];
     if (_old isEqualTo "GUNNER") then {
@@ -23,5 +25,8 @@ GVAR(cameraChangedEH) = ["cameraView", {
             _vehicle setVariable [QGVAR(markerChannels), DEFAULT_MARKER_CHANNELS, true];
         };
         GVAR(pfh) = [FUNC(pfh_main)] call CBA_fnc_addPerFrameHandler;
+    };
+    if (_new isEqualTo "INTERNAL") then {
+        uiNamespace setVariable [QGVAR(controls), createHashMap];
     };
 }, true] call CBA_fnc_addPlayerEventHandler;

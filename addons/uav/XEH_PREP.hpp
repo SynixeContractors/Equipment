@@ -1,3 +1,5 @@
+PREP(init);
+
 PREP(generic_assemble);
 PREP(generic_assembleCondition);
 PREP(generic_assembleInsertChildren);

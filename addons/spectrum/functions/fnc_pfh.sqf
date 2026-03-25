@@ -17,8 +17,8 @@ if (GVAR(toProcess) isEqualTo []) exitWith {
     if (_now - GVAR(lastRun) < GVAR(scanDuration)) exitWith {};
 
     {
-        private _freq = _x getVariable [QEGVAR(uav,freq), -1];
-        private _power = _x getVariable [QEGVAR(uav,power), -1];
+        private _freq = _x getVariable ["arc_freq", -1];
+        private _power = _x getVariable ["arc_power", -1];
         if (_freq != -1 && _power != -1) then {
             GVAR(sources) set [netId _x, [[_freq, _power]]];
         } else {
@@ -71,7 +71,7 @@ for "_i" from 0 to _bucket do {
     {
         _x params ["_f", "_mW"];
         if (_f == 0) then { continue; };
-        private _strength = ([_f, _mW, getPosASL ace_player, getPosASL _source] call EFUNC(uav,signal_calc)) select 1;
+        private _strength = ([_f, _mW, getPosASL ace_player, getPosASL _source] call arc_signal_fnc_calc) select 1;
         private _visualStrength = +_strength;
         _visualStrength = _visualStrength - (_error);
         private _existing = GVAR(interference_building) getOrDefault [_f, -1000];

@@ -4,6 +4,7 @@ class CfgWeapons {
         scope = 2;
         displayName = "HVI Helmet";
         author = "Synixe Contractors";
+        ACE_asItem = 2;
     };
 
     class V_CarrierRigKBT_01_Black_F;
@@ -11,5 +12,6 @@ class CfgWeapons {
         scope = 2;
         displayName = "HVI Vest";
         author = "Synixe Contractors";
+        ACE_asItem = 2;
     };
 };

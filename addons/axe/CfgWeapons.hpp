@@ -8,6 +8,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Description);
         model = "\A3\Structures_F\Items\Tools\Axe_F.p3d";
         picture = QPATHTOF(ui\item_axe_ca.paa);
+        synixe_axe = 1;
         scope = 2;
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 25;

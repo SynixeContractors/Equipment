@@ -11,4 +11,4 @@ _uniqueItems append weapons _unit;
 _uniqueItems pushBack vest _unit;
 _uniqueItems pushBack backpack _unit;
 
-GVAR(classes) findAny _uniqueItems != -1
+(uiNamespace getVariable [QGVAR(classes), []]) findAny _uniqueItems != -1

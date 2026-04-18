@@ -8,6 +8,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "synixe_equipment_main",
+            "arc_signal",
         };
         VERSION_CONFIG;
     };

@@ -12,6 +12,7 @@ workshop = [
     "synixe:@aegis_atlas",
     "synixe:@aegis_opposing_forces",
     "synixe:@aegis",
+    "synixe:@arc",
 ]
 dlc = [
     "ws",

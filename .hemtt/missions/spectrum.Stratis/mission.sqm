@@ -12,10 +12,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1804.6544,9.5474033,6001.1841};
-		dir[]={-0.090014316,-0.31467894,-0.94492042};
-		up[]={-0.029841619,0.94919813,-0.31326079};
-		aside[]={-0.99549329,0,0.094831944};
+		pos[]={1800.53,7.9655147,5995.6372};
+		dir[]={0.37787285,-0.23303613,-0.89605045};
+		up[]={0.090551063,0.97246784,-0.21472383};
+		aside[]={-0.92141902,-2.7939677e-09,-0.38857108};
 	};
 };
 binarizationWanted=0;
@@ -30,7 +30,7 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Characters_F_Common",
 	"A3_Drones_F_Air_F_Gamma_UAV_01",
-	"synixe_equipment_uav"
+	"arc_compat_vanilla"
 };
 class AddonsMetaData
 {
@@ -81,8 +81,8 @@ class AddonsMetaData
 		};
 		class Item6
 		{
-			className="synixe_equipment_uav";
-			name="uav";
+			className="arc_compat_vanilla";
+			name="compat_vanilla";
 		};
 	};
 };
@@ -133,7 +133,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1804.1086,5.5014391,5992.8149};
-						angles[]={0,3.4673617,-0};
+						angles[]={0,3.4673617,0};
 					};
 					side="West";
 					flags=7;
@@ -204,7 +204,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1803.5112,5.5014386,5988.9917};
-						angles[]={-0,3.399332,0};
+						angles[]={0,3.399332,0};
 					};
 					side="West";
 					flags=6;
@@ -220,7 +220,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1803.511,5.6519065,5988.9922};
-						angles[]={-0,3.399332,0};
+						angles[]={0,3.399332,0};
 					};
 					side="West";
 					flags=4;
@@ -275,7 +275,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1800.5344,5.6504679,5983.5059};
-				angles[]={-0,3.399332,0};
+				angles[]={0,3.399332,0};
 			};
 			side="West";
 			flags=6;

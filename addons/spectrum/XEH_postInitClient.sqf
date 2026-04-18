@@ -11,14 +11,15 @@ missionNamespace setVariable ["#EM_SMax", 10];
 
 missionNamespace setVariable ["#EM_Transmit", false];
 
-GVAR(toProcess) = GVAR(sources) toArray false;
-GVAR(values) = createHashMap;
-GVAR(interference) = createHashMap;
-GVAR(lastRun) = 0;
-GVAR(scanDuration) = 2;
-GVAR(scanTime) = 0;
+GVAR(sources) = createHashMap;
+GVAR(sourcesToProcess) = [];
+GVAR(sourcesBuilding) = [];
+GVAR(sourcesActive) = [];
 
-[{ call FUNC(pfh)} ] call CBA_fnc_addPerFrameHandler;
+GVAR(lastRun) = 0;
+
+[{ call FUNC(pfh_updateSources)}, 0.1] call CBA_fnc_addPerFrameHandler;
+[{ call FUNC(pfh_updateUI)}] call CBA_fnc_addPerFrameHandler;
 
 addUserActionEventHandler ["nextweapon", "Activate", {
     if (currentWeapon vehicle ace_player != "hgun_esd_01_F") exitWith {};
@@ -28,9 +29,10 @@ addUserActionEventHandler ["nextweapon", "Activate", {
 ["grad_civs_lifecycle_civ_added", {
     {
         private _seed = parseNumber ((netId _x) select [2,10]);
-        private _delay = (_seed random [0,0]) * 8;
+        private _durationRandom = (_seed random [0,0]) * 0.3;
+        private _delayRandom = (_seed random [1,1]) * 8;
         private _freq = (_seed random [1,1]) * 20 + 700;
-        [_x, _delay, [[_freq, 150]]] call FUNC(delay);
+        [_x, "grad_cell", "CELLPHONE", _freq, 150, 0.05 + _durationRandom, 12 + _delayRandom] call FUNC(addSource);
     } forEach _this;
 }] call CBA_fnc_addEventHandler;
 
@@ -44,27 +46,18 @@ addUserActionEventHandler ["nextweapon", "Activate", {
     GVAR(sources) deleteAt netId _object;
 }] call CBA_fnc_addEventHandler;
 
-[QGVAR(addDelay), {
-    params ["_object", "_delay", "_frequencies"];
-    [_object, _delay, _frequencies] call FUNC(delay);
+["acre_startedSpeaking", {
+    params ["_unit", "_onRadio", "_radioID"];
+    if (!_onRadio) exitWith {};
+    [QGVAR(remoteStartedSpeaking), [_unit, _radioID]] call CBA_fnc_globalEvent;
 }] call CBA_fnc_addEventHandler;
 
-[QGVAR(burst), {
-    params ["_object", "_frequencies", "_duration"];
-    private _id = netId _object;
-    GVAR(sources) set [_id, _frequencies];
-    [{
-        params ["_id"];
-        GVAR(sources) deleteAt _id;
-    }, [_id], _duration] call CBA_fnc_waitAndExecute;
-}] call CBA_fnc_addEventHandler;
-
-["acre_remoteStartedSpeaking", {
-    params ["_unit", ["_onRadio", 0], ["_radioID", ""]];
-    if (_onRadio == 0) exitWith {};
+[QGVAR(remoteStartedSpeaking), {
+    params ["_unit", "_radioID"];
     private _dataRemote = [_radioID, "getCurrentChannelData"] call acre_sys_data_fnc_dataEvent;
     private _frequencyRemote = _dataRemote getVariable ["frequencyTX", 0];
-    GVAR(sources) set [netId _unit, [[_frequencyRemote, 5000]]];
+    private _power = _dataRemote getVariable ["power", 2000];
+    GVAR(sources) set [netId _unit, [[_frequencyRemote, _power]]];
 }] call CBA_fnc_addEventHandler;
 
 ["acre_remoteStoppedSpeaking", {
@@ -74,10 +67,16 @@ addUserActionEventHandler ["nextweapon", "Activate", {
 
 ["lambs_danger_OnInformationShared", {
     params ["_unit"];
-    [QGVAR(burst), [_unit, [[random [55, 65, 75], 2000]], 6]] call CBA_fnc_globalEvent;
+    private _seed = parseNumber ((netId _unit) select [2,10]);
+    private _channelRandom = (_seed random [1,1]) * 20 + 55;
+    private _durationRandom = (_seed random [0,0]) * 4;
+    [_unit, "lambs_information", "UNIT_RADIO", _channelRandom, 2000, 3 + _durationRandom] call FUNC(addSource);
 }] call CBA_fnc_addEventHandler;
 
 ["lambs_danger_OnArtilleryCalled", {
     params ["_unit", "_position"];
-    [QGVAR(burst), [_unit, [[random [55, 65, 75], 4000]], 6]] call CBA_fnc_globalEvent;
+    private _seed = parseNumber ((netId _unit) select [2,10]);
+    private _channelRandom = (_seed random [1,1]) * 20 + 55;
+    private _durationRandom = (_seed random [0,0]) * 7;
+    [_unit, "lambs_artillery", "SQUAD_RADIO", _channelRandom, 4000, 7 + _durationRandom] call FUNC(addSource);
 }] call CBA_fnc_addEventHandler;

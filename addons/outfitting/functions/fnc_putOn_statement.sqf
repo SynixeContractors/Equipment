@@ -7,10 +7,12 @@ _args params ["_selection", "_weapon"];
 
 switch (_selection) do {
     case "ACE_Torso": {
+        [_unit, "MedicOther"] call ace_common_fnc_doGesture;
         _target addVest _weapon;
         _unit removeItem _weapon;
     };
     case "ACE_Head": {
+        [_unit, "PutDown"] call ace_common_fnc_doGesture;
         _target addHeadgear _weapon;
         _unit removeItem _weapon;
     };

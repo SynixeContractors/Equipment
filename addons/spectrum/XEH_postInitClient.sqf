@@ -36,16 +36,6 @@ addUserActionEventHandler ["nextweapon", "Activate", {
     } forEach _this;
 }] call CBA_fnc_addEventHandler;
 
-[QGVAR(addSource), {
-    params ["_object", "_frequencies"];
-    GVAR(sources) set [netId _object, _frequencies];
-}] call CBA_fnc_addEventHandler;
-
-[QGVAR(removeSource), {
-    params ["_object"];
-    GVAR(sources) deleteAt netId _object;
-}] call CBA_fnc_addEventHandler;
-
 ["acre_startedSpeaking", {
     params ["_unit", "_onRadio", "_radioID"];
     if (!_onRadio) exitWith {};
@@ -57,12 +47,14 @@ addUserActionEventHandler ["nextweapon", "Activate", {
     private _dataRemote = [_radioID, "getCurrentChannelData"] call acre_sys_data_fnc_dataEvent;
     private _frequencyRemote = _dataRemote getVariable ["frequencyTX", 0];
     private _power = _dataRemote getVariable ["power", 2000];
-    GVAR(sources) set [netId _unit, [[_frequencyRemote, _power]]];
+    [_unit, "acre_speaking", "UNIT_RADIO", _frequencyRemote, _power] call FUNC(addSource);
 }] call CBA_fnc_addEventHandler;
 
-["acre_remoteStoppedSpeaking", {
-    params ["_unit"];
-    GVAR(sources) deleteAt netId _unit;
+["acre_stoppedSpeaking", {
+    params ["_unit", "_onRadio", "_radioID"];
+    if (!_onRadio) exitWith {};
+    [QGVAR(remoteStoppedSpeaking), [_unit, _radioID]] call CBA_fnc_globalEvent;
+    [_unit, "acre_speaking"] call FUNC(removeSource);
 }] call CBA_fnc_addEventHandler;
 
 ["lambs_danger_OnInformationShared", {

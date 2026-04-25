@@ -58,9 +58,7 @@ addUserActionEventHandler ["nextweapon", "Activate", {
 
 [QGVAR(remoteStoppedSpeaking), {
     params ["_unit", "_radioID"];
-    private _dataRemote = [_radioID, "getCurrentChannelData"] call acre_sys_data_fnc_dataEvent;
-    private _frequencyRemote = _dataRemote getVariable ["frequencyTX", 0];
-    [QGVAR(removeSource), [_unit, "acre_speaking", "UNIT_RADIO", _frequencyRemote]] call CBA_fnc_globalEvent;
+    [_unit, "acre_speaking"] call FUNC(removeSource);
 }] call CBA_fnc_addEventHandler;
 
 ["lambs_danger_OnInformationShared", {
